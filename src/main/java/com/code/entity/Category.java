@@ -3,28 +3,81 @@ package com.code.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "categories")
 public class Category {
-	 @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id;
+    // Member variables
+    // Mapped each member variable to column
+    // Declared one variable as PK
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
-	    @Column(unique = true, nullable = false)
-	    private String name;
+    @Column(name = "name", unique = true, nullable = false)
+    private String name;
 
-	    private String description;
+    @Column(name = "description")
+    private String description;
 
-	    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	    private List<Product> products = new ArrayList<>();
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Product> products;
+
+    // Create a default constructor
+    public Category() {
+        // Set the default value
+        this.id = 0L;
+        this.name = null;
+        this.description = null;
+        this.products = new ArrayList<>();
+    }
+
+    // Create a constructor with parameters
+    public Category(String name, String description) {
+        super();
+        this.name = name;
+        this.description = description;
+        this.products = new ArrayList<>();
+    }
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    // toString()
+    @Override
+    public String toString() {
+        return "Category [id=" + id + ", name=" + name + ", description=" + description + "]";
+    }
 }
