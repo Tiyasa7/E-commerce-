@@ -19,4 +19,8 @@
     - Pagination
 
 ## Author
+<<<<<<< HEAD
 Arup Maity
+=======
+Sarthak Mukherjee
+>>>>>>> 9f9bfad35de51c4133ffc14cfe61ba300527251e
