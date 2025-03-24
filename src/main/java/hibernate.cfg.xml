@@ -9,7 +9,7 @@
  <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
  <property name="connection.url">jdbc:mysql://localhost:3306/e_commerce</property>
  <property name="connection.username">root</property>
- <property name="connection.password">Afzal@2004</property>
+ <property name="connection.password">Mckv@12345</property>
  <!-- JDBC connection pool settings ... using built-in test pool -->
  <property name="connection.pool_size">1</property>
  
